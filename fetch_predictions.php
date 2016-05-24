@@ -17,13 +17,13 @@ while ($row = mysqli_fetch_assoc($pd_exec)){
 	
 		echo "<tr>
 		<td>".$row['time']."&nbsp</td>
-		<td>"."<img style='height:15px;' src='/images/icons/".$row['team_a_flag'].".gif'/></td>
+		<td>"."<img style='height:15px;' src='images/icons/".strtolower($row['team_a_flag']).".gif'/></td>
 		<td>&nbsp".$row['team_a_name']."&nbsp</td>
 		<td>".$row['score_a']."</td>
 		<td>&nbspvs&nbsp</td>
 		<td>".$row['score_b']."&nbsp</td>
 		<td>".$row['team_b_name']."</td>
-		<td>"."<img style='height:15px;' src='/images/icons/".$row['team_b_flag'].".gif'/></td>
+		<td>"."<img style='height:15px;' src='images/icons/".strtolower($row['team_b_flag']).".gif'/></td>
 		<td>"."</td>
 		</tr>";
 	
