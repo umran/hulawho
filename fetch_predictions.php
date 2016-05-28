@@ -16,14 +16,10 @@ echo "<table >";
 while ($row = mysqli_fetch_assoc($pd_exec)){
 	
 		echo "<tr>
-		<td>".date('m-d-Y H:i:s', $row['time'])."&nbsp</td>
-		<td>"."<img style='height:15px;' src='images/icons/".strtolower($row['team_a_flag']).".gif'/></td>
-		<td>&nbsp".$row['team_a_name']."&nbsp</td>
-		<td>".$row['score_a']."</td>
-		<td>&nbspvs&nbsp</td>
-		<td>".$row['score_b']."&nbsp</td>
-		<td>".$row['team_b_name']."</td>
-		<td>"."<img style='height:15px;' src='images/icons/".strtolower($row['team_b_flag']).".gif'/></td>
+		<td>".date('m-d-Y H:i:s', $row['time'])."</td>
+		<td><img class='thumb' src='images/icons/".strtolower($row['team_a_flag']).".gif'/>&nbsp".$row['team_a_name']."</td>
+		<td><div class='score'>".$row['score_a']." - ".$row['score_b']."</div></td>
+		<td><div class='pull-right'>".$row['team_b_name']."&nbsp<img class='thumb' src='images/icons/".strtolower($row['team_b_flag']).".gif'/></div></td>
 		<td>"."</td>
 		</tr>";
 	

@@ -50,7 +50,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["p
 		else{
 			echo "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Registration Successful</strong> You may now <a href='index.php'>Sign In</a> to your account.</div>";
 			$_SESSION["username"] = $sanuser;
-			$_SESSION["email"] = $email;
+			$_SESSION["email"] = $sanemail;
 			$_SESSION["loggedin"] = 1;
 		}
 	}
