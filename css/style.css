@@ -124,9 +124,16 @@ ul.nav li.dropdown ul.dropdown-menu .dropdown-plus-title {
 	}
 }
 
-.thumb {
-	height: 15px;
+.thumb_left {
+	height: 21px;
+	padding-right: 5px;
 }
+
+.thumb_right {
+	height: 21px;
+	padding-left: 5px;
+}
+
 .score {
 	text-align: center;
 }
