@@ -16,7 +16,7 @@ echo "<table >";
 while ($row = mysqli_fetch_assoc($pd_exec)){
 	
 		echo "<tr>
-		<td>".date($row['time'])."&nbsp</td>
+		<td>".date('m-d-Y H:i:s', $row['time'])."&nbsp</td>
 		<td>"."<img style='height:15px;' src='images/icons/".strtolower($row['team_a_flag']).".gif'/></td>
 		<td>&nbsp".$row['team_a_name']."&nbsp</td>
 		<td>".$row['score_a']."</td>
