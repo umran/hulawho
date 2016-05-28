@@ -46,12 +46,12 @@ if(is_numeric($_POST['match_id']) && is_numeric($_POST['quant1']) && is_numeric(
 	}
 	if ($match_id_exists == true){
 		//update the existing record
-		$q = "UPDATE predictions SET team_a=".$score_a.", team_b=".$score_b." WHERE match_id=".$match_id." AND username='".$username."'";
+		$q = "UPDATE predictions SET team_a=".$score_a.", team_b=".$score_b.", time=".$current_time." WHERE match_id=".$match_id." AND username='".$username."'";
 		$msg = "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Success!</strong> We noticed you made a prediction for this game earlier and promptly updated your prediction. Cheers!</div>";
 	}	
 	else{
 		//create new entry
-		$q = "INSERT INTO predictions (match_id, team_a, team_b, username) VALUES (".$match_id.",".$score_a.",".$score_b.",'".$username."')";
+		$q = "INSERT INTO predictions (match_id, team_a, team_b, username, time) VALUES (".$match_id.",".$score_a.",".$score_b.",'".$username."',".$current_time.")";
 		$msg = "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Success!</strong> Your prediction for this game has been saved.</div>";
 	}
 	$q_exec = mysqli_query($con, $q);
