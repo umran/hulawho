@@ -124,6 +124,10 @@ ul.nav li.dropdown ul.dropdown-menu .dropdown-plus-title {
 	}
 }
 
+.logo_center {
+	display: block;
+}
+
 .thumb_left {
 	height: 21px;
 	padding-right: 5px;

@@ -44,11 +44,11 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 			<div class="container"><!--container-->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        		<span class="sr-only">Toggle navigation</span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-      		</button>
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+      				</button>
 			
 					<a class="navbar-brand" href="#" id="toggle-nav"><img src="images/wc2014.png" width="50px" height="50px"/></a>
 				</div>
@@ -80,7 +80,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 						<div class="form-horizontal">
 							<div class="row" id="match-details">
 								<div class="col-xs-12">
-									<img src="images/wc2014.png">
+									<img class="logo_center" src="images/wc2014.png">
 								</div>
 							</div>
 							<!-- begin form row -->
