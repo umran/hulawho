@@ -80,7 +80,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 						<div class="form-horizontal">
 							<div class="row" id="match-details">
 								<div class="col-xs-12">
-									<img class="logo_center" src="images/wc2014.png">
+									<img class="img_block" src="images/wc2014.png">
 								</div>
 							</div>
 							<!-- begin form row -->

@@ -23,13 +23,13 @@ if(!empty($_POST['match_id']) && is_numeric($_POST['match_id'])){
 ?>
 
 								<div class="col-xs-6">
-									<img src="images/icons/<?=$code_a?>.gif">
+									<img class="img_block" src="images/icons/<?=$code_a?>.gif">
 									<div class="cname" style="text-align:center; padding-top:5px;">
 										<h5><strong><?=$team_a?></strong></h5>
 									</div>
 								</div>
 								<div class="col-xs-6">
-									<img src="images/icons/<?=$code_b?>.gif">
+									<img class="img_block" src="images/icons/<?=$code_b?>.gif">
 									<div class="cname" style="text-align:center; padding-top:5px;">
 										<h5><strong><?=$team_b?></strong></h5>
 									</div>	
