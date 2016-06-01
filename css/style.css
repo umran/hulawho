@@ -141,3 +141,25 @@ ul.nav li.dropdown ul.dropdown-menu .dropdown-plus-title {
 .score {
 	text-align: center;
 }
+
+.btn-facebook {
+	color: #ffffff;
+	-webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #2b4b90;
+}
+
+.btn-facebook:hover,
+.btn-facebook:focus,
+.btn-facebook:active,
+.btn-facebook.active,
+.btn-facebook.disabled,
+.btn-facebook[disabled] {
+	color: #ffffff;
+	background-color: #133783 !important;
+}
+
+.btn-facebook:active,
+.btn-facebook.active {
+	background-color: #0d2456 \9 !important;
+}

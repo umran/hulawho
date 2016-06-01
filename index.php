@@ -13,9 +13,6 @@ require("init.php");
 		<link href="bootstrap_3.1.1/css/bootstrap.min.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-		<!-- Load Flat UI OR NOT ;) -->
-		<!--<link href="bootstrap_3.1.1/css/flat.css" rel="stylesheet">-->
-
 		<!-- Set Favicon -->
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -25,6 +22,9 @@ require("init.php");
 
 		<!-- Load Font-Awesome -->
 		<link href="font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		
+		<!-- Load Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
 
 <?php
 
@@ -89,6 +89,16 @@ elseif (isset($_POST["username"]) and isset($_POST["password"])) {
 
 else {
 
+	$fb = new Facebook\Facebook([
+	  'app_id' => $fb_app_id,
+	  'app_secret' => $fb_app_secret,
+	  'default_graph_version' => 'v2.2',
+	  ]);
+
+	$helper = $fb->getRedirectLoginHelper();
+
+	$permissions = ['email']; // Optional permissions
+	$loginUrl = $helper->getLoginUrl($fb_app_redirect_uri, $permissions);
 
 ?>
 		<style type="text/css">
@@ -121,16 +131,6 @@ else {
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                         <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
                                     </div>
-                                    
-
-                                
-                            <!--<div class="input-group">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                        </label>
-                                      </div>
-                                    </div>-->
 
 
                                 <div style="margin-top:10px" class="form-group">
@@ -138,8 +138,12 @@ else {
 
                                     <div class="col-sm-12 controls">
                                       <button id="btn-login" type="submit" class="btn btn-primary">Login</a>
-                                      <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>-->
 
+                                    </div>
+                                    
+                                    <div class="col-sm-12 controls">
+                                    	<center><h6>OR</h6></center>
+                    				<a class="btn btn-lg btn-facebook btn-block" href="<?= $loginUrl ?>">Login via facebook</a>
                                     </div>
                                 </div>
 
@@ -202,22 +206,12 @@ else {
                                         <input type="password" class="form-control" name="passwordconf" placeholder="Password">
                                     </div>
                                 </div>
-                                    
-                                <!--<div class="form-group">
-                                    <label for="icode" class="col-md-3 control-label">Invitation Code</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="icode" placeholder="">
-                                    </div>
-                                </div>-->
 
                                 <div class="form-group">
                                     <!-- Button -->                                        
                                     <div class="col-md-offset-3 col-md-3">
                                         <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Sign Up</button>  
                                     </div>
-																		<!--<div class="col-md-6">
-                                        <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>Sign Up with Facebook</button>
-                                    </div>-->
                                 </div>
                                 
                                 
@@ -289,7 +283,6 @@ else {
 
 					return false; // avoid to execute the actual submit of the form.
 			});
-
 		</script>
 
 	</body>

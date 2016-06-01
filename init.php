@@ -25,4 +25,7 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpass);
 mysqli_select_db($con, $database) or die ("mysql couldn't select the database for you"." ".mysqli_error());
 mysqli_query($con, "SET NAMES utf8 COLLATE 'utf8_unicode_ci'");
 
+//import facebook sdk
+require_once __DIR__ . '/facebook-php-sdk-v4-5.0.0/src/Facebook/autoload.php';
+
 ?>

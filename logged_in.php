@@ -33,7 +33,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 		<!-- Load Bootstrap Select -->
 		<link href="select/bootstrap-select.min.css" rel="stylesheet">
 		
-		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
 
 	</header>
 
