@@ -252,7 +252,7 @@ else {
 						     success: function(data)
 						     {
 						         $('#status').html(data); // show response from the php script.
-										 $('#status').show();
+							   $('#status').show();
 						     }
 						   });
 

@@ -79,22 +79,10 @@ if($row){
 	
 }
 
-//if user does not exist, get user profile from facebook and create new user
-try {
-  $response = $fb->get('/'.$userId.'?fields=email', $accessToken);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
-
-$userProfile = $response->getGraphUser();
+//if user does not exist, create new user
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
 $_SESSION['fb_id'] = $userId;
-$_SESSION['fb_email'] = $userProfile['email'];
 
 require("header.php");
 
@@ -104,13 +92,11 @@ require("header.php");
 		<div style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 		  <div class="panel panel-default">
 			<div class="panel-heading">
-			    <div class="panel-title">Please create a username</div>
+			    <div class="panel-title">Please enter a username</div>
 			</div>  
 			<div class="panel-body" >
 			    <form id="createuserform" class="form-horizontal" role="form">
-				  <div id="signupalert" style="display:none" class="alert alert-danger">
-					<p>Error:</p>
-					<span></span>
+				  <div id="fbsignupstatus">
 				  </div>
 				  <div class="form-group">
 					<label for="email" class="col-md-3 control-label">Username</label>
@@ -122,7 +108,7 @@ require("header.php");
 				  <div class="form-group">
 					<!-- Button -->                                        
 					<div class="col-md-offset-3 col-md-3">
-					    <button id="btn-signup" type="submit" class="btn btn-info">Continue</button>  
+					    <button id="btn-createuser" type="submit" class="btn btn-info">Continue</button>  
 					</div>
 				  </div>
 			    </form>
@@ -130,9 +116,25 @@ require("header.php");
 		   </div>        
 		</div>
 	</div>
+
+	<!-- Scripts -->
+	<script type="text/javascript">
+		$("#signupform").submit(function() {
+
+				var url = "fb_signup.php"; // the script where you handle the form input.
+
+				$.ajax({
+					     type: "POST",
+					     url: url,
+					     data: $("#createuserform").serialize(), // serializes the form's elements.
+					     success: function(data)
+					     {
+						   $('#fbsignupstatus').html(data); // show response from the php script.
+						   $('#fbsignupstatus').show();
+					     }
+					   });
+
+				return false; // avoid to execute the actual submit of the form.
+		});
+	</script>
 </body>
-
-<?php
-
-//header('Location: https://example.com/members.php');
-?>

@@ -18,6 +18,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["p
   $checkemail = str_replace("emailinp", $sanemail, $checkemailquery);
   $checkuser = str_replace("userinp", $sanuser, $checkuserquery);
   $inputquery = "INSERT INTO users (username, password, email) VALUES ('".$sanuser."', '".$sanpass."', '".$sanemail."')";
+  $q = "INSERT INTO rankings (username, gd_total, total) VALUES ('".$sanuser."', 0, 0)";
 
   $queryuser = mysqli_query($con, $checkuser);
   $queryemail = mysqli_query($con, $checkemail);
@@ -39,19 +40,18 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["p
   if (count($errors)==0) {
 		
 		//create new entry for user in rankings table
-		$q = "INSERT INTO rankings (username, gd_total, total) VALUES ('".$sanuser."', 0, 0)";
-		mysqli_query($con, $q);		
+		$inputexecute1 = mysqli_query($con, $q);		
 
 		//create user
-		$inputexecute = mysqli_query($con, $inputquery);		
-		if(!$inputexecute){
+		$inputexecute2 = mysqli_query($con, $inputquery);		
+		if(!$inputexecute1 || !$inputexecute2){
 			echo "Oops! something went wrong ".mysqli_error();
 		}
 		else{
-			echo "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Registration Successful</strong> You may now <a href='index.php'>Sign In</a> to your account.</div>";
 			$_SESSION["username"] = $sanuser;
 			$_SESSION["email"] = $sanemail;
 			$_SESSION["loggedin"] = 1;
+			echo "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Registration Successful</strong> You may now <a href='index.php'>Sign In</a> to your account.</div>";
 		}
 	}
 	else {
