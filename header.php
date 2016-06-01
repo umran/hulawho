@@ -1,4 +1,4 @@
-<header>
+<head>
 	<title>HulaWho | Euro 2016</title>
 	
 	<!-- Load Bootstrap 3 -->
@@ -20,4 +20,4 @@
 	
 	<!-- Load Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-</header>
+</head>
