@@ -39,8 +39,6 @@ if(!empty($_POST["username"]) && !empty($_SESSION["fb_access_token"]) && !empty(
     $_SESSION["username"] = $sanuser;
     $_SESSION["loggedin"] = 1;
     echo "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Registration Successful</strong> You may now <a href='index.php'>Sign In</a> to your account.</div>";
-    echo $sanuser;
-    echo $sanfb_id;
   }
 }
 
