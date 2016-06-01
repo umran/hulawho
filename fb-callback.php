@@ -62,7 +62,7 @@ if (! $accessToken->isLongLived()) {
 $userId = $tokenMetadata->getField('user_id');
 
 //check if user already exists in database
-$existsQuery = "SELECT * FROM users WHERE fb_id =".$userId;
+$existsQuery = "SELECT * FROM users WHERE fb_id ='".$userId."'";
 $execExistsQuery = mysqli_query($con, $existsQuery);
 
 $row = mysqli_fetch_assoc($execExistsQuery);

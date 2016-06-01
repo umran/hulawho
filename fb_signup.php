@@ -3,15 +3,15 @@ require('init.php');
 
 if(!empty($_POST["username"]) && !empty($_SESSION["fb_access_token"]) && !empty($_SESSION["fb_id"])) {
   
-  $sanuser = mysqli_real_escape_string($_POST["username"]);
-  $sanfb_id = mysqli_real_escape_string($_SESSION["fb_id"]);
+  $sanuser = mysqli_real_escape_string($con, $_POST["username"]);
+  $sanfb_id = mysqli_real_escape_string($con, $_SESSION["fb_id"]);
 
-  $checkuserquery = "SELECT * FROM users WHERE username =".$sanuser;
+  $checkuserquery = "SELECT * FROM users WHERE username ='".$sanuser."'";
   
-  $existsQuery = "SELECT * FROM users WHERE fb_id =".$sanfb_id;
+  $existsQuery = "SELECT * FROM users WHERE fb_id ='".$sanfb_id."'";
   
-  $inputquery = "INSERT INTO users (username, fb_id) VALUES (".$sanuser.", ".$sanfb_id.")";
-  $q = "INSERT INTO rankings (username, gd_total, total) VALUES (".$sanuser.", 0, 0)";
+  $inputquery = "INSERT INTO users (username, fb_id) VALUES ('".$sanuser."', '".$sanfb_id."')";
+  $q = "INSERT INTO rankings (username, gd_total, total) VALUES ('".$sanuser."', 0, 0)";
 
   $queryuser = mysqli_query($con, $checkuserquery);
   $execExistsQuery = mysqli_query($con, $existsQuery);
