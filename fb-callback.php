@@ -63,7 +63,7 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 
 $userId = $tokenMetadata->getField('user_id');
 $scopes = $tokenMetadata->getField('scopes');
-echo $scopes;
+print_r($scopes);
 //var_dump($tokenMetadata)
 
 // User is logged in with a long-lived access token.
