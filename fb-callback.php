@@ -82,7 +82,7 @@ if($row){
 //if user does not exist, create new user
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
-$_SESSION['fb_id'] = (string) $userId;
+$_SESSION['fb_id'] = $userId;
 
 require("header.php");
 

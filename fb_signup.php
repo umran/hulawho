@@ -10,8 +10,8 @@ if(!empty($_POST["username"]) && !empty($_SESSION["fb_access_token"]) && !empty(
   
   $existsQuery = "SELECT * FROM users WHERE fb_id =".$sanfb_id;
   
-  $inputquery = "INSERT INTO users (username, fb_id) VALUES ('".$sanuser."', '".$sanfb_id."')";
-  $q = "INSERT INTO rankings (username, gd_total, total) VALUES ('".$sanuser."', 0, 0)";
+  $inputquery = "INSERT INTO users (username, fb_id) VALUES (".$sanuser.", ".$sanfb_id.")";
+  $q = "INSERT INTO rankings (username, gd_total, total) VALUES (".$sanuser.", 0, 0)";
 
   $queryuser = mysqli_query($con, $checkuserquery);
   $execExistsQuery = mysqli_query($con, $existsQuery);
