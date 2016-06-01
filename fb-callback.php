@@ -61,7 +61,7 @@ if (! $accessToken->isLongLived()) {
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
 
-$userId = $tokenMetadata->getUserId();
+$userId = $tokenMetadata->getField('user_id');
 echo $userId;
 
 // User is logged in with a long-lived access token.
