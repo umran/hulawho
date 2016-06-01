@@ -76,7 +76,7 @@ try {
 
 $userProfile = $response->getGraphUser();
 
-echo 'Name: ' . $userProfile['name'];
+print_r($userProfile);
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
