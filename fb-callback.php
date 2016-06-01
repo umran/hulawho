@@ -65,7 +65,7 @@ $userId = $tokenMetadata->getField('user_id');
 $existsQuery = "SELECT * FROM users WHERE fb_id =".$userId;
 $execExistsQuery = mysqli_query($con, $existsQuery);
 
-var $row = mysqli_fetch_assoc($execExistsQuery);
+$row = mysqli_fetch_assoc($execExistsQuery);
 
 if($row){
 	$username = $row['username'];
