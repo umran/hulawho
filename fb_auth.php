@@ -12,7 +12,7 @@
 		$_SESSION["username"] = $username;
 		$_SESSION["loggedin"] = 1;
 		
-		header('Location: /logged_in.php');
+		echo "<META HTTP-EQUIV='Refresh' Content='0; URL=logged_in.php'>";
 		exit;
 		
 	}
