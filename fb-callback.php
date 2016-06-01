@@ -118,6 +118,7 @@ require("header.php");
 	</div>
 
 	<!-- Scripts -->
+	<script src="bootstrap_3.1.1/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 		$("#createuserform").submit(function() {
 
