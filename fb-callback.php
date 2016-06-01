@@ -65,7 +65,7 @@ $userId = $tokenMetadata->getField('user_id');
 
 //get user profile
 try {
-  $response = $fb->get('/user/'.$userId.'?fields=id,email', $accessToken);
+  $response = $fb->get('/'.$userId.'?fields=id,email', $accessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
