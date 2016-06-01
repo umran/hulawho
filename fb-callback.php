@@ -62,8 +62,21 @@ if (! $accessToken->isLongLived()) {
 $_SESSION['fb_access_token'] = (string) $accessToken;
 
 $userId = $tokenMetadata->getField('user_id');
-$scopes = $tokenMetadata->getField('scopes');
-var_dump($tokenMetadata)
+
+//get user profile
+try {
+  $response = $fb->get('/me?fields=id,name', $accessToken);
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  echo 'Graph returned an error: ' . $e->getMessage();
+  exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  exit;
+}
+
+$userProfile = $response->getGraphUser();
+
+echo 'Name: ' . $userProfile['name'];
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
