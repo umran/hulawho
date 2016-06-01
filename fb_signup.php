@@ -6,7 +6,7 @@ if (!empty($_POST["username"]) && !empty($_SESSION["fb_access_token"]) && !empty
   $sanuser = mysqli_real_escape_string($_POST["username"]);
   $sanfb_id = mysqli_real_escape_string($_SESSION["fb_id"]);
 
-  $checkuserquery = "SELECT * FROM users WHERE fb_id = '".$sanfb_id."'";
+  $checkuserquery = "SELECT * FROM users WHERE username = '".$sanuser."'";
   $inputquery = "INSERT INTO users (username, fb_id) VALUES ('".$sanuser."', '".$sanfb_id."')";
   $q = "INSERT INTO rankings (username, gd_total, total) VALUES ('".$sanuser."', 0, 0)";
 
