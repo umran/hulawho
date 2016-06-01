@@ -119,7 +119,7 @@ require("header.php");
 
 	<!-- Scripts -->
 	<script type="text/javascript">
-		$("#signupform").submit(function() {
+		$("#createuserform").submit(function() {
 
 				var url = "fb_signup.php"; // the script where you handle the form input.
 
