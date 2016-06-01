@@ -1,6 +1,5 @@
 <?php
 require("init.php");
-require("header.php");
 
 $fb = new Facebook\Facebook([
   'app_id' => $fb_app_id,
@@ -62,7 +61,26 @@ if (! $accessToken->isLongLived()) {
 
 $userId = $tokenMetadata->getField('user_id');
 
-//get user profile
+//check if user already exists in database
+$existsQuery = "SELECT * FROM users WHERE fb_id =".$userId;
+$execExistsQuery = mysqli_query($con, $existsQuery);
+
+var $row = mysqli_fetch_assoc($execExistsQuery);
+
+if($row){
+	$username = $row['username'];
+	
+	//set session
+	echo "<div class='alert alert-success'><strong><i class='fa fa-check-circle-o'></i> Registration Successful</strong> You will now be redirected to your account.</div>";
+	$_SESSION["username"] = $username;
+	$_SESSION["loggedin"] = 1;
+	
+	header('Location: http://hulawho.mv/logged_in.php');
+	exit;
+	
+}
+
+//if user does not exist, get user profile
 try {
   $response = $fb->get('/'.$userId.'?fields=email', $accessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -79,7 +97,7 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 $_SESSION['fb_id'] = $userId;
 $_SESSION['fb_email'] = $userProfile['email'];
 
-require('fb_auth.php');
+require("header.php");
 
 ?>
 
