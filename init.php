@@ -10,6 +10,9 @@ date_default_timezone_set($timezone);
 
 require("functions.php");
 
+//set session cookie parameters
+
+
 //traditional sessions - begin session
 session_start();
 

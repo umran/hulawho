@@ -36,8 +36,6 @@ if (! isset($accessToken)) {
 }
 
 // Logged in
-echo '<h3>Access Token</h3>';
-var_dump($accessToken->getValue());
 
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
@@ -61,12 +59,11 @@ if (! $accessToken->isLongLived()) {
     echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
     exit;
   }
-
-  echo '<h3>Long-lived</h3>';
-  var_dump($accessToken->getValue());
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
+
+print_r($tokenMetadata);
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.

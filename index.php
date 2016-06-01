@@ -141,9 +141,9 @@ else {
 
                                     </div>
                                     
-                                    <div class="col-sm-12 controls">
-                                    	<center><h6>OR</h6></center>
-                    				<a class="btn btn-lg btn-facebook btn-block" href="<?= $loginUrl ?>">Login via facebook</a>
+                                    <div class="col-sm-6 controls">
+                                    	<h6>OR</h6>
+                    				<a class="btn btn-facebook" href="<?= $loginUrl ?>"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class='facebook-text'>Login with Facebook</span></a>
                                     </div>
                                 </div>
 
@@ -201,7 +201,7 @@ else {
                                     </div>
                                 </div>
 																<div class="form-group">
-                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <label for="password" class="col-md-3 control-label">Confirm Password</label>
                                     <div class="col-md-9">
                                         <input type="password" class="form-control" name="passwordconf" placeholder="Password">
                                     </div>
