@@ -1,5 +1,6 @@
 <?php
 require("init.php");
+require("header.php");
 
 $fb = new Facebook\Facebook([
   'app_id' => $fb_app_id,
@@ -59,13 +60,11 @@ if (! $accessToken->isLongLived()) {
   }
 }
 
-$_SESSION['fb_access_token'] = (string) $accessToken;
-
 $userId = $tokenMetadata->getField('user_id');
 
 //get user profile
 try {
-  $response = $fb->get('/'.$userId.'?fields=id,email', $accessToken);
+  $response = $fb->get('/'.$userId.'?fields=email', $accessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
@@ -76,9 +75,46 @@ try {
 
 $userProfile = $response->getGraphUser();
 
-print_r($userProfile);
+$_SESSION['fb_access_token'] = (string) $accessToken;
+$_SESSION['fb_id'] = $userId;
+$_SESSION['fb_email'] = $userProfile['email'];
 
-// User is logged in with a long-lived access token.
-// You can redirect them to a members-only page.
+require('fb_auth.php');
+
+?>
+
+<div class='container'>
+	<div style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+	  <div class="panel panel-default">
+		<div class="panel-heading">
+		    <div class="panel-title">Create a username</div>
+		</div>  
+		<div class="panel-body" >
+		    <form id="signupform" class="form-horizontal" role="form">
+			  <div id="signupalert" style="display:none" class="alert alert-danger">
+				<p>Error:</p>
+				<span></span>
+			  </div>
+			  <div class="form-group">
+				<label for="email" class="col-md-3 control-label">Username</label>
+				<div class="col-md-9">
+				    <input type="text" class="form-control" name="username" placeholder="Username">
+				</div>
+			  </div>
+
+			  <div class="form-group">
+				<!-- Button -->                                        
+				<div class="col-md-offset-3 col-md-3">
+				    <button id="btn-signup" type="submit" class="btn btn-info">Continue</button>  
+				</div>
+			  </div>
+		    </form>
+		 </div>
+	   </div>        
+	</div>
+</div>
+
+<?php
+
 //header('Location: https://example.com/members.php');
 ?>

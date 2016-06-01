@@ -2,8 +2,8 @@
 require('init.php');
 
 if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["passwordconf"]) && !empty($_POST["email"])) {
-	$newuser = $_POST["username"];
-	$newpass = $_POST["password"];
+  $newuser = $_POST["username"];
+  $newpass = $_POST["password"];
   $newpassconf = $_POST["passwordconf"];
   $newemail = $_POST["email"];
 
@@ -22,10 +22,10 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["p
   $queryuser = mysqli_query($con, $checkuser);
   $queryemail = mysqli_query($con, $checkemail);
 
-	$errors = array();    
+  $errors = array();    
 
   if (mysqli_num_rows($queryuser) == 1) {
-		array_push($errors, "The username is not available as it has already been taken.");
+	array_push($errors, "The username is not available as it has already been taken.");
   }
 
   if (mysqli_num_rows($queryemail) == 1) {
@@ -33,7 +33,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["p
   }
 
   if ($cmp != 0) {
-		array_push($errors, "The password combinations did not match. Please ensure that you typed the same value in the 'Password' and 'Confirm Password' fields."); 
+	array_push($errors, "The password combinations did not match. Please ensure that you typed the same value in the 'Password' and 'Confirm Password' fields."); 
   }
 
   if (count($errors)==0) {
