@@ -74,7 +74,8 @@ if($row){
 	$_SESSION["username"] = $username;
 	$_SESSION["loggedin"] = 1;
 	
-	header('Location: http://hulawho.mv/logged_in.php');
+	$redirect_address = "https://".$_SERVER['HTTP_HOST']."/logged_in.php";
+	header('Location: '.$redirect_address);
 	exit;
 	
 }
