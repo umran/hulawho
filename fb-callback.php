@@ -107,6 +107,8 @@ if($row){
 $_SESSION['fb_access_token'] = (string) $accessToken;
 $_SESSION['fb_id'] = $userId;
 
+echo "<html>";
+
 require("header.php");
 
 ?>
@@ -162,3 +164,7 @@ require("header.php");
 		});
 	</script>
 </body>
+
+<?php
+echo "</html>";
+?>
