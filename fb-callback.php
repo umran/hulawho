@@ -17,7 +17,28 @@ try {
   exit;
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
   // When validation fails or other local issues
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  //echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  
+  // [Begin Test]
+  
+  // destroy session and start new session
+  // destroy session
+  session_destroy();
+  
+  // set session cookie parameters
+  $cookieParams = session_get_cookie_params(); // Gets current cookies params.
+  session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], '.hulawho.mv', true, true);
+
+  // start new session
+  session_start();
+  
+  // generate new login url
+  $loginUrl = $helper->getLoginUrl($fb_app_redirect_uri, $permissions);
+  
+  // redirect user to new login url
+  header('Location: '.$loginUrl);
+  
+  // [End Test]
   exit;
 }
 
