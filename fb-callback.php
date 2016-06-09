@@ -33,6 +33,7 @@ try {
   session_start();
   
   // generate new login url
+  $permissions = ['email'];
   $loginUrl = $helper->getLoginUrl($fb_app_redirect_uri, $permissions);
   
   // redirect user to new login url
