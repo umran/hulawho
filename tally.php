@@ -103,7 +103,7 @@ foreach ($users as $user){
 	$update = "UPDATE rankings SET gd_total =".$gd_tot_pts.", total =".$tot_pts." WHERE username ='".$user."'";
 	$update_exec = mysqli_query($con, $update);
 	if(!$update_exec){
-		print "error: ".mysqli_error()."\n";
+		print "error: mysql error!";
 	}
 	else{
 		print "record for ".$user." has been updated successfully \n";
