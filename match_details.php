@@ -22,7 +22,7 @@ if(!empty($_POST['match_id']) && is_numeric($_POST['match_id'])){
 	
 ?>
 
-								<div class="col-xs-5 col-absolute-left padded-left11">
+								<div class="col-xs-5 col-absolute-left">
 									<div class='img-container'>
 										<img class="img_block icon-md" src="images/insignias/<?=$code_a?>.svg">
 										<div class="cname" style="text-align:center; padding-top:5px;">
@@ -32,11 +32,11 @@ if(!empty($_POST['match_id']) && is_numeric($_POST['match_id'])){
 								</div>
 								<div class="col-xs-2 col-absolute-middle">
 									<div class="vs">
-										<h4>vs</h4>
+										<h5 class='vs-header'>vs</h5>
 									</div>
 								</div>
-								<div class="col-xs-5 col-absolute-right padded-right11">
-									<div class='img-container pull-right'>
+								<div class="col-xs-5 col-absolute-right">
+									<div class='img-container'>
 										<img class="img_block icon-md" src="images/insignias/<?=$code_b?>.svg">
 										<div class="cname" style="text-align:center; padding-top:5px;">
 											<h5><strong><?=$team_b?></strong></h5>

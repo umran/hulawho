@@ -7,4 +7,11 @@ if(!isset($_SESSION['username'])){
 	exit;
 }
 
+if(empty($_POST["league_name"])) {
+	print "<div class='alert alert-info'><strong><i class='fa fa-info-circle'></i> Oops. Looks like you didn't submit a league name.</strong></div>";
+	exit;
+}
+
+print "<div class='alert alert-info'><strong><i class='fa fa-info-circle'></i> Private League functionality is still under development. Cheers!</strong></div>";
+
 ?>

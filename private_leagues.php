@@ -21,11 +21,11 @@ require('header.php');
 		<div style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 		  <div class="panel panel-default">
 			<div class="panel-heading">
-			    <div class="panel-title">Create new league</div>
+			    <div class="panel-title">Start a new league</div>
 			</div>  
 			<div class="panel-body" >
-			    <form id="createuserform" class="form-horizontal" role="form">
-				  <div id="fbsignupstatus">
+			    <form id="createleagueform" class="form-horizontal" role="form">
+				  <div id="leaguecreationstatus">
 				  </div>
 				  <div class="form-group">
 					<label for="email" class="col-md-3 control-label">League</label>
@@ -52,18 +52,18 @@ require('header.php');
 	<script src="nprogress/nprogress.js"></script>
 	<script src="select/bootstrap-select.min.js"></script>
 	<script type="text/javascript">
-		$("#createuserform").submit(function() {
+		$("#createleagueform").submit(function() {
 
-				var url = "fb_signup.php"; // the script where you handle the form input.
+				var url = "submit_league.php"; // the script where you handle the form input.
 
 				$.ajax({
 					     type: "POST",
 					     url: url,
-					     data: $("#createuserform").serialize(), // serializes the form's elements.
+					     data: $("#createleagueform").serialize(), // serializes the form's elements.
 					     success: function(data)
 					     {
-						   $('#fbsignupstatus').html(data); // show response from the php script.
-						   $('#fbsignupstatus').show();
+						   $('#leaguecreationstatus').html(data); // show response from the php script.
+						   $('#leaguecreationstatus').show();
 					     }
 					   });
 

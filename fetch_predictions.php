@@ -21,7 +21,7 @@ echo "<table >";
 while ($row = mysqli_fetch_assoc($pd_exec)){
 	
 		echo "<tr>
-		<td><div class='row'><div class='col-xs-3'><div class=''>".date('m-d-Y', $row['time'])."</div></div><div class='col-xs-3'><div class=''><img class='thumb_left' src='images/insignias/".strtolower($row['team_a_flag']).".svg'/><span class='hidden-xs'>".$row['team_a_name']."</span></div></div><div class='col-xs-3'><div class='score'>".$row['score_a']." - ".$row['score_b']."</div></div><div class='col-xs-3'><div class='pull-right'><span class='hidden-xs'>".$row['team_b_name']."</span><img class='thumb_right' src='images/insignias/".strtolower($row['team_b_flag']).".svg'/></div></div></div></td>
+		<td><div class='row'><div class='col-md-3 col-xs-4'><div class=''>".date('m-d-Y', $row['time'])."</div></div><div class='col-md-3 col-xs-2'><div class=''><img class='thumb_left' src='images/insignias/".strtolower($row['team_a_flag']).".svg'/><span class='hidden-xs'>".$row['team_a_name']."</span></div></div><div class='col-md-3 col-xs-4'><div class='score'>".$row['score_a']." - ".$row['score_b']."</div></div><div class='col-md-3 col-xs-2'><div class='pull-right'><span class='hidden-xs'>".$row['team_b_name']."</span><img class='thumb_right' src='images/insignias/".strtolower($row['team_b_flag']).".svg'/></div></div></div></td>
 		</tr>";
 	
 }
