@@ -24,6 +24,7 @@ img {
 
 .navbar{
 	margin-bottom:0px;
+	max-height: 50px;
 }
 .navbar-brand{
 	padding-top:0px;
@@ -59,8 +60,8 @@ img {
 	color: #333;
 }
 .navbar-default {
-	background: #2B6D9A;			
-	border-color: #2B6D9A;
+	background: #84c7e6;			
+	border: none;
 }
 
 /* Fancy Dropdown */
@@ -85,8 +86,7 @@ ul.nav li.dropdown ul.dropdown-menu {
 	color: rgb(51, 51, 51);
 	padding: 6px 12px;
 	font-weight: 800;
-	border: 0 solid rgb(173, 173, 173);
-	border-bottom-width: 2px;
+	border: none;
 	cursor: pointer;
 }
 
@@ -130,12 +130,12 @@ ul.nav li.dropdown ul.dropdown-menu .dropdown-plus-title {
 
 .thumb_left {
 	height: 21px;
-	padding-right: 5px;
+	padding-right: 20px;
 }
 
 .thumb_right {
 	height: 21px;
-	padding-left: 5px;
+	padding-left: 20px;
 }
 
 .score {
@@ -166,4 +166,92 @@ ul.nav li.dropdown ul.dropdown-menu .dropdown-plus-title {
 
 .facebook-text {
 	padding-left: 15px;
+}
+
+.euro16 {
+	height: 48px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.euro16-main {
+	height: 100px;
+}
+
+.score-input {
+	text-align: center;
+	width: 70%;
+}
+
+.img-container {
+	width: 70%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0C588D;
+    border: none;
+}
+
+.row-score {
+	display: none;
+}
+
+.vs {
+	text-align: center;
+	/*padding-top: 80px;*/
+}
+
+.padded-left11 {
+	padding-left: 11px;
+}
+
+.padded-right11 {
+	padding-right: 11px;
+}
+
+.icon-md {
+	width: 80px;
+}
+
+.row-relative {
+	position: relative;
+	height: 160px;
+}
+
+.col-absolute-left {
+	position: absolute;
+	bottom: 0;
+	left: 1%;
+}
+
+.col-absolute-middle {
+	position: absolute;
+	bottom: 0;
+	left: 41.6669565%;
+}
+
+.col-absolute-right {
+	position: absolute;
+	bottom: 0;
+	right: 1%;
+}
+
+.col-absolute-default {
+	position: absolute;
+	bottom: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.container-predictions {
+}
+
+.container-leaderboard {
+}
+
+.table {
+  border: 1px solid #dddddd;
 }

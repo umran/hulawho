@@ -62,5 +62,8 @@ if(is_numeric($_POST['match_id']) && is_numeric($_POST['quant1']) && is_numeric(
 		print $msg;
 	}
 }
+else{
+	print "<div class='alert alert-danger'><strong><i class='fa fa-exclamation-triangle'></i> Please make sure you've entered integers as scores.</strong></div>";
+}
 
 ?>

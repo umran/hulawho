@@ -17,36 +17,10 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 	?>
 
 	<body>
-		<!-- nav bar row -->
-
-		<div class="main-nav navbar navbar-static-top navbar-default theme-bg" id="main-nav">
-			<div class="container"><!--container-->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-      				</button>
-			
-					<a class="navbar-brand" href="#" id="toggle-nav"><img src="images/wc2014.png" width="50px" height="50px"/></a>
-				</div>
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown hidden-xs" id="add-active">
-							<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown"><?=$username?> <span class="caret"></span></button>
-							<ul class="dropdown-menu" role="menu">
-								<li class="dropdown-plus-title"><?=$username?><b class="pull-right glyphicon glyphicon-chevron-up"></b></li>
-					      <li><a href="logout.php" class="dropdown-plus-title"><i class="fa fa-sign-out"></i> <strong>logout</strong></a></li>
-								<!--<li class="divider"></li>-->						    
-							</ul>			
-						</li>
-						<li class="hidden-md hidden-lg hidden-sm"><a href="logout.php"><i class="fa fa-sign-out"></i> <strong>logout</strong></a></li>
-					</ul>
-				</div>
-			</div><!--/.container-->
-		</div><!--/.navbar-->			
+	
+		<?php
+			require('navbar.php')
+		?>			
 
 		<!-- Status Indicator -->
 		<div class="status" id="status">
@@ -57,17 +31,20 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 			<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="form-horizontal">
-							<div class="row" id="match-details">
-								<div class="col-xs-12">
-									<img class="img_block" src="images/wc2014.png">
+							<div class="row row-relative" id="match-details">
+								<div class="col-xs-12 col-absolute-default">
+									<img class="img_block euro16-main" src="images/euro16.svg">
 								</div>
 							</div>
 							<!-- begin form row -->
 							<form role="form" id="prediction">
-								<div class="row">
-									<div class="col-xs-6">
-										<!-- score input field -->
+								<div class="row row-score">
+									<div class="col-xs-5">
 										<div class="form-group">
+											<input type="text" class="form-control score-input" name="quant1" id="quant1">
+										</div>
+										<!-- score input field -->
+										<!--<div class="form-group">
 											<div class="input-group">
 				      					<span class="input-group-btn">
 				          				<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant1">
@@ -81,12 +58,15 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 				          					</button>
 				      						</span>
 				  						</div>
-										</div>
+										</div>-->
 										<!-- end field -->
 									</div>
-									<div class="col-xs-6">
-										<!-- score input field -->
+									<div class="col-xs-offset-2 col-xs-5">
 										<div class="form-group">
+											<input type="text" class="form-control score-input pull-right" name="quant2" id="quant2">
+										</div>
+										<!-- score input field -->
+										<!--<div class="form-group">
 											<div class="input-group">
 					    					<span class="input-group-btn">
 					        				<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant2">
@@ -100,7 +80,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 					        					</button>
 					    						</span>
 											</div>
-										</div>
+										</div>-->
 										<!-- end field -->	
 									</div>
 								</div>
@@ -108,14 +88,14 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 									<div class="col-xs-12">
 										<div class="form-group">
 											<!--<label for="inputTitle" class="col-sm-3 control-label">Select Game</label>-->
-											<div class="col-sm-12">
+											<!--<div class="col-sm-12">-->
 												<select class="selectpicker form-control" id="select-match">
 													<option>Please select a game to predict...</option>												
 													<?php
 														include('fetch_games.php');
 													?>
 												</select>
-											</div>
+											<!--</div>-->
 										</div>
 									</div>
 								</div>
@@ -137,46 +117,50 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 		</div>
 		
 		<!-- Predictions table -->
-		<div class="container">
+		<div class="container container-predictions">
 		  <div class="row">
-	    	<div class="panel panel-primary filterable">
-	      	<div class="panel-heading">
-	        	<h3 class="panel-title"><strong>Predictions</strong></h3>
-	       	</div>
-	        <thead>	
-			<table class="table" id="predictions">
-			<?php
-			//	include('fetch_predictions.php');
-			?>
-            </thead>
-			</table>
-         	</div>
+			<h4><strong>Predictions</strong></h3>
+			<div class="table-responsive">
+				<!--<div class="panel panel-primary filterable">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Predictions</strong></h3>
+				</div>-->	
+				<table class="table table-striped">
+				<thead>
+				</thead>
+				<tbody id="predictions">
+				</tbody>
+				</table>
+				<!--</div>-->
+			</div>
 		  </div>
 		</div>
 					
 		<!-- rankings row -->
-		<div class="container">
+		<div class="container container-leaderboard">
 		  <div class="row">
-	    	<div class="panel panel-primary filterable">
-	      	<div class="panel-heading">
-	        	<h3 class="panel-title"><strong>Leaderboard</strong></h3>
-	          <div class="pull-right">
-	            <button class="btn btn-primary btn-xs btn-filter"><span class="glyphicon glyphicon-search"></span> Filter</button>
-	         	</div>
-	       	</div>
-	        <table class="table">
-	        	<thead>
-	          	<tr class="filters">
-                <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                <th><input type="text" class="form-control" placeholder="User" disabled></th>
-                <th><input type="text" class="form-control" placeholder="GD" disabled></th>
-                <th><input type="text" class="form-control" placeholder="TOT" disabled></th>
-              </tr>
-            </thead>
-            <tbody id="rankings">
-           	</tbody>
-         	</table>
-     		</div>
+		  	<h4><strong>Public Leaderboard</strong></h3>
+			<div class="table-responsive">
+	    	<!--<div class="panel panel-primary filterable">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Leaderboard</strong></h3>
+				  <div class="pull-right">
+					<button class="btn btn-info btn-xs btn-filter"><span class="glyphicon glyphicon-search"></span> Search</button>
+				  </div>
+				</div>-->
+				<table class="table table-striped">
+					<thead>
+						<tr class="filters">
+							<th>Position</th>
+							<th>User</th>
+							<th>Today's Score</th>
+							<th>Total Score</th>
+						</tr>
+					</thead>
+					<tbody id="rankings">
+					</tbody>
+				</table>
+     		<!--</div>-->
 		  </div>
 		</div>
 		
@@ -267,7 +251,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 
 			$("#select-match").change(function() {
 
-    				var $value = $(this).val();
+    			var $value = $(this).val();
 				var url = "match_details.php"; // the script where you handle the form input.
 			
 				$.ajax({
@@ -278,6 +262,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 						$('#match-details').html(data); // show response from the php script.
 					}
 				});
+				$('.row-score').show();
 				$('input#match_id').val($value);
 				$('input#quant1').val(0);
 				$('input#quant2').val(0);
