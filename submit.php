@@ -27,7 +27,7 @@ if(is_numeric($_POST['match_id']) && is_numeric($_POST['quant1']) && is_numeric(
 	$q = "SELECT * FROM matches where match_id=".$match_id;
 	$q_exec = mysqli_query($con, $q);
 	$row = mysqli_fetch_assoc($q_exec);
-	$match_time = $row["unix_time"] - 18000;
+	$match_time = $row["unix_time"];
 	
 	if($current_time>$match_time){
 		print "<div class='alert alert-warning'><strong><i class='fa fa-frown-o'></i> Oops. You were too late.</strong> Either the match has already begun or it's over.</div>";
