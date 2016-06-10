@@ -1,6 +1,7 @@
 <?php
 
 function gameday($current){
+	$gameday = 2;
 	if ($current<(1402621200-21600)){
 		$gameday = 1;
 	}
