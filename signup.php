@@ -45,7 +45,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["p
 		//create user
 		$inputexecute2 = mysqli_query($con, $inputquery);		
 		if(!$inputexecute1 || !$inputexecute2){
-			echo "Oops! something went wrong ".mysqli_error();
+			echo "Oops! something went catastrophically wrong. Please let the webmaster know about this. ";
 		}
 		else{
 			$_SESSION["username"] = $sanuser;

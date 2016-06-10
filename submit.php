@@ -56,7 +56,7 @@ if(is_numeric($_POST['match_id']) && is_numeric($_POST['quant1']) && is_numeric(
 	}
 	$q_exec = mysqli_query($con, $q);
 	if(!$q_exec){
-		print "<div class='alert alert-danger'><strong><i class='fa fa-exclamation-triangle'></i> Oops. Something Went Wrong</strong> ".mysqli_error()."</div>";
+		print "<div class='alert alert-danger'><strong><i class='fa fa-exclamation-triangle'></i> Oops. Something Went Wrong</strong></div>";
 	}
 	else{
 		print $msg;

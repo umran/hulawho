@@ -26,7 +26,7 @@ if(isset($_SESSION["username"])) {
 $con = mysqli_connect($dbhost, $dbuser, $dbpass);
 
 //select database and set character set
-mysqli_select_db($con, $database) or die ("mysql couldn't select the database for you"." ".mysqli_error());
+mysqli_select_db($con, $database) or die ("mysql couldn't select the database for you");
 mysqli_query($con, "SET NAMES utf8 COLLATE 'utf8_unicode_ci'");
 
 //import facebook sdk

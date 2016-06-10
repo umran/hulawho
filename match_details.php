@@ -18,7 +18,7 @@ if(!empty($_POST['match_id']) && is_numeric($_POST['match_id'])){
 	$team_b = $row['team_b'];
 	$code_a = getcode($team_a);
 	$code_b = getcode($team_b);	
-	$time = $row['unix_time']-18000;
+	$time = $row['unix_time'];
 	
 ?>
 
