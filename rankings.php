@@ -26,7 +26,7 @@ if($_POST["league"] == "global"){
 		<tr>
 		  <td><?=$n?></td>
 		  <td><?=$username?></td>
-		  <td><?=$gd_total?></td>
+		  <!--<td><?=$gd_total?></td>-->
 		  <td><?=$total?></td>
 		</tr>
 
