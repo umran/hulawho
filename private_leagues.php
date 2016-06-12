@@ -18,21 +18,23 @@ require('header.php');
 	?>
 
 	<div class='container'>
-		<div style="margin-top:20px;" id="leaguecreationstatus">
-		</div>
-		<div class="mainbox col-md-6 no-padding">
-			<h4>Create a new league</h4>
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<form id="createleagueform" role="form">
-					  <div class="form-group toggle-hide">
-						<label for="text" class="control-label">League</label>
-						<input type="text" class="form-control" name="league_name" placeholder="League Name">
-					  </div>
-					  <button id="btn-createleague" type="submit" class="btn btn-primary">Create</button>
-					</form> 
-				</div>  
-			</div>    
+		<div class='row no-padding'>
+			<div class='col-xs-12' style="margin-top:20px;" id="leaguecreationstatus">
+			</div>
+			<div class="mainbox col-md-6 col-xs-12">
+				<h4>Create a new league</h4>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form id="createleagueform" role="form">
+						  <div class="form-group toggle-hide">
+							<label for="text" class="control-label">League</label>
+							<input type="text" class="form-control" name="league_name" placeholder="League Name">
+						  </div>
+						  <button id="btn-createleague" type="submit" class="btn btn-primary">Create</button>
+						</form> 
+					</div>  
+				</div>    
+			</div>
 		</div>
 	</div>
 
