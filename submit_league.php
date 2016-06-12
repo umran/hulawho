@@ -14,12 +14,12 @@ if(empty($_POST["league_name"])) {
 $league_admin = $_SESSION["username"];
 $league_name = mysqli_real_escape_string($con, $_POST["league_name"]);
 
-// check if league already exists for user
-$leagueexists = "SELECT * FROM private_leagues WHERE admin='".$league_admin."' AND name = '".$league_name."'";
+// check if league already exists globally
+$leagueexists = "SELECT * FROM private_leagues WHERE name = '".$league_name."'";
 $checkleague = mysqli_query($con, $leagueexists);
 
 if (mysqli_num_rows($checkleague) >= 1){
-	print "<div class='alert alert-warning'><strong><i class='fa fa-info-circle'></i> You have already created a leage named ".$league_name."</strong></div>";
+	print "<div class='alert alert-warning'><strong><i class='fa fa-info-circle'></i> A league called ".$league_name." already exists</strong></div>";
 	exit;
 }
 
