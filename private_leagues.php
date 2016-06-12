@@ -14,35 +14,25 @@ require('header.php');
 <body>
 
 	<?php
-		require('navbar.php')
+		require('navbar.php');
 	?>
 
 	<div class='container'>
-		<div style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-		  <div class="panel panel-default">
-			<div class="panel-heading">
-			    <div class="panel-title">Start a new league</div>
-			</div>  
-			<div class="panel-body" >
-			    <form id="createleagueform" class="form-horizontal" role="form">
-				  <div id="leaguecreationstatus">
-				  </div>
-				  <div class="form-group">
-					<label for="email" class="col-md-3 control-label">League</label>
-					<div class="col-md-9">
-					    <input type="text" class="form-control" name="league_name" placeholder="League Name">
-					</div>
-				  </div>
-
-				  <div class="form-group">
-					<!-- Button -->                                        
-					<div class="col-md-offset-3 col-md-3">
-					    <button id="btn-createuser" type="submit" class="btn btn-info">Create</button>  
-					</div>
-				  </div>
-			    </form>
-			 </div>
-		   </div>        
+		<div style="margin-top:20px;" id="leaguecreationstatus">
+		</div>
+		<div class="mainbox col-md-6 no-padding">
+			<h4>Create a new league</h4>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form id="createleagueform" role="form">
+					  <div class="form-group toggle-hide">
+						<label for="text" class="control-label">League</label>
+						<input type="text" class="form-control" name="league_name" placeholder="League Name">
+					  </div>
+					  <button id="btn-createleague" type="submit" class="btn btn-primary">Create</button>
+					</form> 
+				</div>  
+			</div>    
 		</div>
 	</div>
 
@@ -63,7 +53,6 @@ require('header.php');
 					     success: function(data)
 					     {
 						   $('#leaguecreationstatus').html(data); // show response from the php script.
-						   $('#leaguecreationstatus').show();
 					     }
 					   });
 

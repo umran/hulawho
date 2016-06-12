@@ -19,7 +19,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 	<body>
 	
 		<?php
-			require('navbar.php')
+			require('navbar.php');
 		?>			
 
 		<!-- Status Indicator -->
@@ -119,7 +119,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 		<!-- Predictions table -->
 		<div class="container container-predictions">
 		  <div class="row">
-			<h4><strong>Predictions</strong></h3>
+			<h4><strong>Predictions</strong></h4>
 			<div class="table-responsive">
 				<!--<div class="panel panel-primary filterable">
 				<div class="panel-heading">
@@ -139,7 +139,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 		<!-- rankings row -->
 		<div class="container container-leaderboard">
 		  <div class="row">
-		  	<h4><strong>Public Leaderboard</strong></h3>
+		  	<h4><strong>Public Leaderboard</strong></h4>
 			<div class="table-responsive">
 	    	<!--<div class="panel panel-primary filterable">
 				<div class="panel-heading">

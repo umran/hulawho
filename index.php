@@ -11,11 +11,14 @@ require("init.php");
 require('header.php');
 
 if (isset($_SESSION["loggedin"])) {
-if ($_SESSION["loggedin"] == 1 and isset($_SESSION["username"])) {
-
-echo '<META HTTP-EQUIV="Refresh" Content="0; URL=logged_in.php">';
-exit;
-}
+	if ($_SESSION["loggedin"] == 1 and isset($_SESSION["username"])) {
+		if(isset($_SESSION["redirect"])){
+			echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SESSION["redirect"].'">';
+			exit;
+		}
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=logged_in.php">';
+		exit;
+	}
 }
 elseif (isset($_POST["username"]) and isset($_POST["password"])) {
 
