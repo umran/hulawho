@@ -141,13 +141,6 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 		  <div class="row">
 		  	<h4><strong>Public Leaderboard</strong></h4>
 			<div class="table-responsive">
-	    	<!--<div class="panel panel-primary filterable">
-				<div class="panel-heading">
-					<h3 class="panel-title"><strong>Leaderboard</strong></h3>
-				  <div class="pull-right">
-					<button class="btn btn-info btn-xs btn-filter"><span class="glyphicon glyphicon-search"></span> Search</button>
-				  </div>
-				</div>-->
 				<table class="table table-striped">
 					<thead>
 						<tr class="filters">
@@ -160,7 +153,6 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 					<tbody id="rankings">
 					</tbody>
 				</table>
-     		<!--</div>-->
 		  </div>
 		</div>
 		

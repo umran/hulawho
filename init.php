@@ -11,7 +11,7 @@ date_default_timezone_set($timezone);
 require("functions.php");
 
 //set session cookie parameters
-$cookieParams = session_get_cookie_params(); // Gets current cookies params.
+$cookieParams = session_get_cookie_params(); // Gets current cookies params
 session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], '.hulawho.mv', true, true);
 
 //traditional sessions - begin session

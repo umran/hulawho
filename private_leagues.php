@@ -38,10 +38,14 @@ require('header.php');
 			
 			<!-- Show private leagues -->
 			<div class="mainbox col-md-6 col-xs-12">
-				<h4>My leagues</h4>
+				<h4>My Leagues</h4>
 				<div id="leaguelist" class="list-group">
 				
 				</div>    
+			</div>
+			
+			<!-- Show private leaderboards -->
+			<div class='col-xs-12' id='privateleaderboards'>
 			</div>
 			
 		</div>
@@ -64,6 +68,16 @@ require('header.php');
 			});
 		}
 		
+		function fetchLeaderboards() {
+			$.ajax({
+				type: "GET",
+				url: "private_rankings.php",
+				success: function(data) {
+					$('#privateleaderboards').html(data);
+				}
+			})
+		}
+		
 		$("#createleagueform").submit(function() {
 
 				var url = "submit_league.php"; // the script where you handle the form input.
@@ -81,8 +95,13 @@ require('header.php');
 
 				return false; // avoid to execute the actual submit of the form.
 		});
-	
-		window.onload = fetchLeagues;
+		
+		function init() {
+			fetchLeagues();
+			fetchLeaderboards();
+		}
+		
+		window.onload = init;
 	</script>
 	
 	<?php include_once("analyticstracking.php") ?>
