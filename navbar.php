@@ -10,7 +10,7 @@
 				<ul class="dropdown-menu" role="menu">
 					<li class="dropdown-plus-title"><?=$username?><b class="pull-right glyphicon glyphicon-chevron-up"></b></li>
 					<li><a href="private_leagues.php" class="dropdown-plus-title"><i class="fa fa-group"></i> <strong>Private Leagues</strong></a></li>
-					<li><a href="#" class="dropdown-plus-title"><i class="fa fa-check-circle-o"></i> <strong>Predictions</strong></a></li>
+					<li><a href="global_predictions.php" class="dropdown-plus-title"><i class="fa fa-check-circle-o"></i> <strong>Predictions</strong></a></li>
 					<li><a href="#" class="dropdown-plus-title"><i class="fa fa-shopping-cart"></i> <strong>Shop</strong></a></li>
 					<li><a href="#" class="dropdown-plus-title"><i class="fa fa-trophy"></i> <strong>Awards</strong></a></li>
 					<li><a href="#" class="dropdown-plus-title"><i class="fa fa-cog"></i> <strong>Account Settings</strong></a></li>
@@ -38,7 +38,7 @@
 						</a>
 					</li>
 					<li class=''>
-						<a href='#'>
+						<a href='global_predictions.php'>
 							<i class="fa fa-check-circle-o"></i>
 						</a>
 					</li>
