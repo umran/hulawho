@@ -95,6 +95,9 @@ if (mysqli_num_rows($getname) == 1) {
 	});
 </script>
 
+// analytics
+<?php include_once("analyticstracking.php") ?>
+
 <?php
 	echo "</body>";
 	echo "</html>";
