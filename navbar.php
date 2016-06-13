@@ -10,9 +10,11 @@
 				<ul class="dropdown-menu" role="menu">
 					<li class="dropdown-plus-title"><?=$username?><b class="pull-right glyphicon glyphicon-chevron-up"></b></li>
 					<li><a href="private_leagues.php" class="dropdown-plus-title"><i class="fa fa-group"></i> <strong>Private Leagues</strong></a></li>
-					<li><a href="#" class="dropdown-plus-title"><i class="fa fa-cog"></i> <strong>Account Settings</strong></a></li>
-					<li><a href="logout.php" class="dropdown-plus-title"><i class="fa fa-sign-out"></i> <strong>Logout</strong></a></li>
-					<!--<li class="divider"></li>-->						    
+					<li><a href="predictions.php" class="dropdown-plus-title"><i class="fa fa-check-circle-o"></i> <strong>Predictions</strong></a></li>
+					<li><a href="shop.php" class="dropdown-plus-title"><i class="fa fa-shopping-cart"></i> <strong>Shop</strong></a></li>
+					<li><a href="awards.php" class="dropdown-plus-title"><i class="fa fa-trophy"></i> <strong>Awards</strong></a></li>
+					<li><a href="setting.php" class="dropdown-plus-title"><i class="fa fa-cog"></i> <strong>Account Settings</strong></a></li>
+					<li><a href="logout.php" class="dropdown-plus-title"><i class="fa fa-sign-out"></i> <strong>Logout</strong></a></li>						    
 				</ul>			
 			</li>
 		</ul>
