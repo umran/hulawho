@@ -163,8 +163,6 @@ require("header.php");
 				return false; // avoid to execute the actual submit of the form.
 		});
 	</script>
-	
-	// analytics
 	<?php include_once("analyticstracking.php") ?>
 	
 </body>

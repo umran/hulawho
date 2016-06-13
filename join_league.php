@@ -94,8 +94,6 @@ if (mysqli_num_rows($getname) == 1) {
 			return false; // avoid to execute the actual submit of the form.
 	});
 </script>
-
-// analytics
 <?php include_once("analyticstracking.php") ?>
 
 <?php

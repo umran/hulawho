@@ -365,8 +365,6 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
       		
       		window.onload = initialize; 
 		</script>
-		
-		// analytics
 		<?php include_once("analyticstracking.php") ?>
 		
 	</body>
