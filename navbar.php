@@ -39,6 +39,21 @@
 					</li>
 					<li class=''>
 						<a href='#'>
+							<i class="fa fa-check-circle-o"></i>
+						</a>
+					</li>
+					<li class=''>
+						<a href='#'>
+							<i class="fa fa-shopping-cart"></i>
+						</a>
+					</li>
+					<li class=''>
+						<a href='#'>
+							<i class="fa fa-trophy"></i>
+						</a>
+					</li>
+					<li class=''>
+						<a href='#'>
 							<i class="fa fa-cog"></i>
 						</a>
 					</li>

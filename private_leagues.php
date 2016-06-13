@@ -90,6 +90,7 @@ require('header.php');
 					     {
 						   $('#leaguecreationstatus').html(data); // show response from the php script.
 						   fetchLeagues();
+						   fetchLeaderboards();
 					     }
 					   });
 
