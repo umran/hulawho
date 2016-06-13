@@ -38,11 +38,9 @@ require('header.php');
 			
 			<!-- Show private leagues -->
 			<div class="mainbox col-md-6 col-xs-12">
-				<h4 class="pull-right">My leagues</h4>
-				<div id="liststatus" style="display: none;">
-				</div>
-				<div class="list-group">
-					  
+				<h4>My leagues</h4>
+				<div id="leaguelist" class="list-group">
+				
 				</div>    
 			</div>
 			
@@ -55,6 +53,17 @@ require('header.php');
 	<script src="nprogress/nprogress.js"></script>
 	<script src="select/bootstrap-select.min.js"></script>
 	<script type="text/javascript">
+		
+		function fetchLeagues() {
+			$.ajax({
+				type: "GET",
+				url: "league_list.php",
+				success: function(data) {
+					$('#leaguelist').html(data);
+				}
+			});
+		}
+		
 		$("#createleagueform").submit(function() {
 
 				var url = "submit_league.php"; // the script where you handle the form input.
@@ -66,12 +75,16 @@ require('header.php');
 					     success: function(data)
 					     {
 						   $('#leaguecreationstatus').html(data); // show response from the php script.
+						   fetchLeagues();
 					     }
 					   });
 
 				return false; // avoid to execute the actual submit of the form.
 		});
+	
+		window.onload = fetchLeagues;
 	</script>
+	
 	<?php include_once("analyticstracking.php") ?>
 	
 </body>

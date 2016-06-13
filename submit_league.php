@@ -44,9 +44,6 @@ if(!$create_league || !$add_member) {
 	exit;
 }
 
-print "<div class='alert alert-success'><h5>A new league called <strong>".$league_name."</strong> has been created. Now pass around the league url and password so others can join your league!</h5>
-	<div class='league-link'><p><strong>league url</strong></p><p><h4><span class=\"label label-success\">https://hulawho.mv/join_league.php?url_id=".$league_url_id."</span></h4></p></div>
-	<div class='league-password'><p><strong>league password</strong><p><h4><span class=\"label label-success\">".$league_password."</span></h4></p></div>
-	</div>";
+print "<div class='alert alert-success'><h5>A new league called <strong>".$league_name."</strong> has been created. Now pass around the league url and password so others can join your league!</h5></div>";
 
 ?>
