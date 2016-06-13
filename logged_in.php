@@ -120,18 +120,13 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 		<div class="container container-predictions">
 		  <div class="row">
 			<h4><strong>Predictions</strong></h4>
-			<div class="table-responsive">
-				<!--<div class="panel panel-primary filterable">
-				<div class="panel-heading">
-					<h3 class="panel-title"><strong>Predictions</strong></h3>
-				</div>-->	
+			<div class="table-responsive">	
 				<table class="table table-striped">
 				<thead>
 				</thead>
 				<tbody id="predictions">
 				</tbody>
 				</table>
-				<!--</div>-->
 			</div>
 		  </div>
 		</div>
