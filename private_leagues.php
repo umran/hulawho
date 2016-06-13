@@ -38,7 +38,7 @@ require('header.php');
 			
 			<!-- Show private leagues -->
 			<div class="mainbox col-md-6 col-xs-12">
-				<h4>My leagues</h4>
+				<h4 class="pull-right">My leagues</h4>
 				<div id="liststatus" style="display: none;">
 				</div>
 				<div class="list-group">
