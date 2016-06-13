@@ -10,9 +10,9 @@ print "<body>";
 $predictionsquery = "SELECT flags.flag as team_b_flag, therest.* from
 (
 SELECT flags.flag as team_a_flag,predictions.* FROM(
-SELECT username,matches.unix_time as match_time, matches.team_a as team_a_name, matches.team_b as team_b_name,predictions.team_a as score_a,predictions.team_b as score_b,predictions.time FROM `predictions` inner join matches on predictions.match_id=matches.match_id order by time desc)predictions
+SELECT username,matches.unix_time as match_time, matches.team_a as team_a_name, matches.team_b as team_b_name,predictions.team_a as score_a,predictions.team_b as score_b FROM `predictions` inner join matches on predictions.match_id=matches.match_id order by matches.unix_time desc)predictions
 INNER JOIN flags ON predictions.team_a_name = flags.teams)therest
-INNER JOIN flags ON therest.team_b_name = flags.teams order by time desc";
+INNER JOIN flags ON therest.team_b_name = flags.teams";
 
 $fetchPredictions = mysqli_query($con, $predictionsquery);
 ?>
