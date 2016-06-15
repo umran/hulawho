@@ -40,8 +40,17 @@ while($row = mysqli_fetch_assoc($fetchPredictions)) {
 }
 ?>
 
-		</tbody>
-		</table>
-	</div>
-  </div>
-</div>
+					</tbody>
+				</table>
+			</div>
+		  </div>
+		</div>
+		<!-- Scripts -->
+		
+		<script src="bootstrap_3.1.1/js/jquery-1.11.0.min.js"></script>
+		<script src="bootstrap_3.1.1/js/bootstrap.min.js"></script>
+		<script src="nprogress/nprogress.js"></script>
+		<script src="select/bootstrap-select.min.js"></script>
+		
+	</body>
+</html>
