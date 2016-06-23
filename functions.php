@@ -40,6 +40,36 @@ function gameday($current){
 	elseif ((1466535600)<$current && $current<(1466622000)){
 		$gameday = 13;
 	}
+	elseif ((1466622000)<$current && $current<(1466881200)){
+		$gameday = 14;
+	}
+	elseif ((1466881200)<$current && $current<(1466967600)){
+		$gameday = 15;
+	}
+	elseif ((1466967600)<$current && $current<(1467054000)){
+		$gameday = 16;
+	}
+	elseif ((1467054000)<$current && $current<(1467313200)){
+		$gameday = 17;
+	}
+	elseif ((1467313200)<$current && $current<(1467399600)){
+		$gameday = 18;
+	}
+	elseif ((1467399600)<$current && $current<(1467486000)){
+		$gameday = 19;
+	}
+	elseif ((1467486000)<$current && $current<(1467572400)){
+		$gameday = 20;
+	}
+	elseif ((1467572400)<$current && $current<(1467831600)){
+		$gameday = 21;
+	}
+	elseif ((1467831600)<$current && $current<(1467918000)){
+		$gameday = 22;
+	}
+	elseif ((1467918000)<$current && $current<(1468177200)){
+		$gameday = 23;
+	}
 	return $gameday;
 }
 function getcode($country){
