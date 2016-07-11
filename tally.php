@@ -20,7 +20,11 @@ foreach ($users as $user){
 	print "fetching records for ".$user."\n";
 	//load user's total points
 	$tot_pts = 0;
-	$gd_tot_pts =0;	
+	$gd_tot_pts = 0;
+	
+	// ratio stuff
+	$tot_predictions = 0;
+	$tot_correct_predictions = 0;
 	
 	//debugging code
 	print "points initial: ".$tot_pts."\n";
@@ -42,6 +46,9 @@ foreach ($users as $user){
 			continue;
 		}
 		else{
+		
+			$tot_predictions += 1;
+		
 			//process the record
 			$outcome_pts = 0;
 			$score_pts = 0;
@@ -83,6 +90,7 @@ foreach ($users as $user){
 					if($record['b_score'] == $row['team_b']){
 						print "also, user predicted correct score for match_id: ".$row['match_id']."\n"; 
 						$score_pts += 2;
+						$tot_correct_predictions += 1;
 						if ($gameday == $record['gameday']){
 							$gd_score_pts += 2;				
 						}
@@ -95,12 +103,16 @@ foreach ($users as $user){
 			//update is_checked status in predictions table						
 		}
 	}
+	
+	// compute ratio
+	$correctness_ratio = round(($tot_correct_predictions/$tot_predictions*100), 2, PHP_ROUND_HALF_UP);
+	
 	//debugging code
 	print "gameday total points: ".$gd_tot_pts."\n";
 	print "total points: ".$tot_pts."\n";
 	
 	//update user score in rankings table
-	$update = "UPDATE rankings SET gd_total =".$gd_tot_pts.", total =".$tot_pts." WHERE username ='".$user."'";
+	$update = "UPDATE rankings SET gd_total =".$gd_tot_pts.", total =".$tot_pts.", pr_total =".$tot_predictions.", corr_pr_total=".$tot_correct_predictions.", corr_ratio=".$correctness_ratio." WHERE username ='".$user."'";
 	$update_exec = mysqli_query($con, $update);
 	if(!$update_exec){
 		print "error: mysql error!";

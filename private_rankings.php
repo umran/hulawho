@@ -51,9 +51,10 @@ foreach($member_sets as $member_set) {
 	$lname = array_shift($member_set);
 	$members = implode(",", $member_set);
 	// generate table
-	$mem = "SELECT * FROM rankings WHERE username in (".$members.") ORDER BY total DESC";
+	$mem = "SELECT * FROM rankings WHERE username in (".$members.") ORDER BY total DESC, corr_ratio DESC";
 	$getmem = mysqli_query($con, $mem);
 	$n=0;
+	$acc_prev = "";
 	$total_prev = "";
 	
 	?>
@@ -66,7 +67,7 @@ foreach($member_sets as $member_set) {
 				<tr class="filters">
 					<th>Position</th>
 					<th>User</th>
-					<th>Today's Score</th>
+					<th>Accuracy</th>
 					<th>Total Score</th>
 				</tr>
 			</thead>
@@ -75,13 +76,16 @@ foreach($member_sets as $member_set) {
 	<?php
 	while($row = mysqli_fetch_assoc($getmem)){	
 		$username = $row['username'];
-		$gd_total = $row['gd_total'];
 		$total = $row['total'];
-
-		if($total_prev != $total){
+		$acc = $row['corr_ratio'];
+		
+		if($total_prev != $total) {
+			$n+=1;
+		} else if($acc_prev != $acc){
 			$n+=1;
 		}
 		
+		$acc_prev = $acc;
 		$total_prev = $total;
 
 		?>
@@ -89,7 +93,7 @@ foreach($member_sets as $member_set) {
 		<tr>
 		  <td><?=$n?></td>
 		  <td><?=$username?></td>
-		  <td><?=$gd_total?></td>
+		  <td><?=$acc?></td>
 		  <td><?=$total?></td>
 		</tr>
 

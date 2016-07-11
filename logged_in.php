@@ -141,7 +141,7 @@ if ($_SESSION["loggedin"] != 1 || !isset($_SESSION["username"])) {
 						<tr class="filters">
 							<th>Position</th>
 							<th>User</th>
-							<th>Points Received Last Gameday</th>
+							<th>Accuracy</th>
 							<th>Total Score</th>
 						</tr>
 					</thead>
