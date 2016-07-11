@@ -15,6 +15,7 @@ if($_POST["league"] == "global"){
 		$username = $row['username'];
 		$total = $row['total'];
 		$acc = $row['corr_ratio'];
+		$gp = $row['pr_total'];
 		
 		if($total_prev != $total) {
 			$n+=1;
@@ -30,6 +31,7 @@ if($_POST["league"] == "global"){
 		<tr>
 		  <td><?=$n?></td>
 		  <td><?=$username?></td>
+		  <td><?=$gp?></td>
 		  <td><?=$acc?></td>
 		  <td><?=$total?></td>
 		</tr>

@@ -67,6 +67,7 @@ foreach($member_sets as $member_set) {
 				<tr class="filters">
 					<th>Position</th>
 					<th>User</th>
+					<th>Games Predicted</th>
 					<th>Accuracy</th>
 					<th>Total Score</th>
 				</tr>
@@ -78,6 +79,7 @@ foreach($member_sets as $member_set) {
 		$username = $row['username'];
 		$total = $row['total'];
 		$acc = $row['corr_ratio'];
+		$gp = $row['pr_total'];
 		
 		if($total_prev != $total) {
 			$n+=1;
@@ -93,6 +95,7 @@ foreach($member_sets as $member_set) {
 		<tr>
 		  <td><?=$n?></td>
 		  <td><?=$username?></td>
+		  <td><?=$gp?></td>
 		  <td><?=$acc?></td>
 		  <td><?=$total?></td>
 		</tr>
