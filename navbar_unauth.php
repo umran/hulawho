@@ -6,7 +6,7 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown" id="add-active">
-				<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown"><?=$username?></span></button>
+				<!--<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown"><?=$username?></span></button>-->
 				<ul class="dropdown-menu" role="menu">
 					<li class="dropdown-plus-title"><?=$username?><b class="pull-right glyphicon glyphicon-chevron-up"></b></li>
 					<li><a href="private_leagues.php" class="dropdown-plus-title"><i class="fa fa-group"></i> <strong>Private Leagues</strong></a></li>
